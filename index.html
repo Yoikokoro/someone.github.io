@@ -15,15 +15,51 @@
             font-family: Arial, sans-serif;
             color: white; /* Set text color to white for better visibility */
             text-align: center;
+            padding: 10px;
         }
+
         h1 {
-            font-size: 2rem;
+            font-size: 2rem; /* Larger font size for larger screens */
             font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem; /* Smaller font size for mobile */
+                margin-bottom: 15px;
+            }
+        }
+
+        /* Button styling */
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <h1>Go to the link I sent you on your birthday.</h1>
-    <h1>klik music first</h1>
+    <div>
+        <h1>Go to the link I sent you on your birthday.</h1>
+        <h1>Click music first</h1>
+
+        <!-- Add an audio player with autoplay and controls -->
+        <button onclick="document.getElementById('audio').play()">Click to play music</button>
+        <audio id="audio" controls style="display:none;">
+            <source src="love.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
 </body>
 </html>
