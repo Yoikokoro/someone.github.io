@@ -32,31 +32,15 @@
             }
         }
 
-        /* Button styling */
-        button {
-            padding: 10px 20px;
-            font-size: 1rem;
-            color: white;
-            background-color: #4CAF50;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
     </style>
 </head>
 <body>
     <div>
         <h1>Go to the link I sent you on your birthday.</h1>
-        <h1>Click music first</h1>
+        <h1>click music first!</h1>
 
-        <!-- Add an audio player with autoplay and controls -->
-        <button onclick="document.getElementById('audio').play()">Click to play music</button>
-        <audio id="audio" controls style="display:none;">
+        <!-- Audio player with autoplay and hidden controls -->
+        <audio autoplay loop>
             <source src="love.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
