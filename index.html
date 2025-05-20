@@ -44,7 +44,7 @@
       font-size: 2em;
       font-weight: 700;
       text-align: center;
-      margin-top: 50px;
+      margin-top: 10px;
     }
     button {
       padding: 10px 20px;
@@ -97,7 +97,7 @@
       }
       .message {
         font-size: 1.8em;
-        margin-top: 30px;
+        margin-top: 10px;
       }
     }
   </style>
@@ -147,10 +147,12 @@
       contentToHide.style.display = 'none';
 
       const mainContent = document.getElementById('mainContent');
-      const messageDiv = document.createElement('div');
-      messageDiv.className = 'message';
-      messageDiv.textContent = 'ehhhhh?';
-      mainContent.appendChild(messageDiv);
+      for (let i = 0; i < 10; i++) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message';
+        messageDiv.textContent = 'ehhhhh?';
+        mainContent.appendChild(messageDiv);
+      }
     }
   </script>
 </body>
