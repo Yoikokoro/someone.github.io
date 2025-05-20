@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>for u</title>
+  <title>Can We Try Again?</title>
   <style>
     body {
       display: flex;
@@ -112,12 +112,14 @@
   <div class="container">
     <button id="musicButton" onclick="startMusic()">Music</button>
     <div id="mainContent" style="display:none;">
-      <h2>Haloo Shelvia</h2>
-      <div class="same-size-text">I think I like you</div>
-      <div class="same-size-text">eemm</div>
-      <div class="same-size-text">Do you like me too?</div>
-      <button id="yesButton" onclick="handleYes()">Iya</button>
-      <button id="noButton" onclick="moveButton()">Tidak</button>
+      <div id="contentToHide">
+        <h2>Haloo Shelvia</h2>
+        <div class="same-size-text">I think I like you</div>
+        <div class="same-size-text">eemm</div>
+        <div class="same-size-text">Do you like me too?</div>
+        <button id="yesButton" onclick="handleYes()">Iya</button>
+        <button id="noButton" onclick="moveButton()">Tidak</button>
+      </div>
     </div>
   </div>
 
@@ -141,6 +143,9 @@
     }
 
     function handleYes() {
+      const contentToHide = document.getElementById('contentToHide');
+      contentToHide.style.display = 'none';
+
       const mainContent = document.getElementById('mainContent');
       const messageDiv = document.createElement('div');
       messageDiv.className = 'message';
@@ -150,3 +155,4 @@
   </script>
 </body>
 </html>
+
