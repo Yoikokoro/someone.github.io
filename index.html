@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birthday Link</title>
+    <title>Can We Try Again?</title>
     <style>
         body {
             display: flex;
@@ -11,39 +11,125 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: gray; /* Set the background color to gray */
+            background-color: rgb(98, 165, 114);
             font-family: Arial, sans-serif;
-            color: white; /* Set text color to white for better visibility */
+            overflow: hidden;
+        }
+        .container {
             text-align: center;
-            padding: 10px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            width: 90%;
+            max-width: 400px;
         }
-
         h1 {
-            font-size: 2rem; /* Larger font size for larger screens */
-            font-weight: bold;
-            margin-bottom: 20px;
+            color: rgb(255, 141, 179);
+            font-size: 1.5em;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        #yesButton {
+            background-color: green;
+        }
+        #yesButton:hover {
+            background-color: darkgreen;
+        }
+        #noButton {
+            background-color: red;
+            transition: transform 0.5s ease;
+        }
+        #noButton:hover {
+            background-color: darkred;
+        }
+        #musicButton {
+            background-color: #4CAF50;
+            font-size: 14px;
+        }
+        #musicButton:hover {
+            background-color: #45a049;
         }
 
-        /* Responsive adjustments */
+        /* Ensure the layout adjusts for mobile screens */
         @media (max-width: 600px) {
             h1 {
-                font-size: 1.5rem; /* Smaller font size for mobile */
-                margin-bottom: 15px;
+                font-size: 1.2em;
+            }
+            .container {
+                width: 85%;
+                padding: 15px;
+            }
+            button {
+                font-size: 14px;
+                padding: 8px 15px;
             }
         }
-
     </style>
 </head>
 <body>
-    <div>
-        <h1>Go to the link I sent you on your birthday.</h1>
-        <h1>click music first!</h1>
+    <div class="container">
+        <!-- Music Control Button -->
+        <button id="musicButton" onclick="startMusic()">Music</button>
 
-        <!-- Audio player with autoplay and hidden controls -->
-        <audio autoplay loop>
+        <!-- Audio Player for music (Initially hidden) -->
+        <audio id="musicPlayer" autoplay loop style="display:none;">
             <source src="love.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
+
+        <!-- Content hidden initially, will appear after Music is played -->
+        <div id="mainContent" style="display:none;">
+            <h1>Can we try again cinta??</h1>
+            <button id="yesButton" onclick="handleYes()">Yes</button>
+            <button id="noButton" onclick="moveButton()">No</button>
+        </div>
     </div>
+
+    <script>
+        function startMusic() {
+            const musicPlayer = document.getElementById('musicPlayer');
+            const musicButton = document.getElementById('musicButton');
+            const mainContent = document.getElementById('mainContent');
+
+            // Play the music
+            musicPlayer.play();
+
+            // Hide the "Music" button
+            musicButton.style.display = 'none';
+
+            // Show the main content (Can we try again + Yes/No buttons)
+            mainContent.style.display = 'block';
+        }
+
+        function moveButton() {
+            const noButton = document.getElementById('noButton');
+            const container = document.querySelector('.container');
+            const containerRect = container.getBoundingClientRect();
+
+            // Generate random positions within the container
+            const randomX = Math.random() * (containerRect.width - noButton.offsetWidth);
+            const randomY = Math.random() * (containerRect.height - noButton.offsetHeight);
+
+            // Apply new position using transform for smoother animation
+            noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        function handleYes() {
+            alert('emmm serius mau?');
+            window.close(); // Try to close the window after the alert
+        }
+    </script>
 </body>
 </html>
