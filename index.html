@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Can We Try Again?</title>
+  <title>for u</title>
   <style>
     body {
       display: flex;
@@ -142,7 +142,10 @@
 
     function handleYes() {
       const mainContent = document.getElementById('mainContent');
-      mainContent.innerHTML = '<div class="message">ehhh??</div>';
+      const messageDiv = document.createElement('div');
+      messageDiv.className = 'message';
+      messageDiv.textContent = 'ehhh??';
+      mainContent.appendChild(messageDiv);
     }
   </script>
 </body>
